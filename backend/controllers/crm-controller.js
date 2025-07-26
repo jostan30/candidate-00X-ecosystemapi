@@ -4,6 +4,15 @@ const postToTargets = require("../utils/postToTargets");
 const crmSync = (req, res) => {
     try {
         const { email, source, targets } = req.body;
+        if(!email || !source || !targets || !Array.isArray(targets) || targets.length === 0) {
+            return res.status(400).json({ message: 'Invalid request data' });
+        }
+        // Validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            return res.status(400).json({ message: 'Invalid email format' });
+        }
+        
         const transaction = {
             email,
             source,
