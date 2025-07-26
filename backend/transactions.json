@@ -1,0 +1,28 @@
+[
+  {
+    "email": "john@example.com",
+    "source": "partnerA",
+    "targets": [
+      "MailerLite",
+      "Notion"
+    ],
+    "date": "2025-07-26T21:45:26.589Z"
+  },
+  {
+    "email": "john@example.com",
+    "source": "partnerA",
+    "targets": [
+      "MailerLite"
+    ],
+    "date": "2025-07-26T21:51:08.215Z"
+  },
+  {
+    "email": "jostan@example.com",
+    "source": "PlatformA",
+    "targets": [
+      "MailerLite",
+      "Notion"
+    ],
+    "date": "2025-07-26T21:53:15.544Z"
+  }
+]
