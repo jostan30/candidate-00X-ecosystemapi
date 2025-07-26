@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Candidate 00X Ecosystem API
 
-## Getting Started
+This project syncs CRM data from a source platform to multiple target platforms (e.g., MailerLite, Notion) via a single API.
 
-First, run the development server:
+---
+
+## 📦 Installation
+
+### 1. Clone the Repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone git@github.com:jostan30/candidate-00X-ecosystemapi.git
+cd candidate-00X-ecosystemapi
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install Root-Level Dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Install Backend Dependencies
 
-## Learn More
+```bash
+cd backend
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ⚙️ Environment Setup
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Create a `.env` file inside the `backend` directory:
 
-## Deploy on Vercel
+```env
+PORT=5000
+```
+Create a `.env` file in the root directory:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```env
+NEXT_PUBLIC_BASE_URL=http://localhost:5000
+```
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚀 Start the Backend Server
+
+Inside the `backend` directory:
+
+```bash
+nodemon app.js
+```
+
+If it fails then Install nodemon globally:
+
+```bash
+npm install -g nodemon
+```
+
+The server will run at `http://localhost:5000`.
+
+---
+## 📁 Project Structure
+
+```
+candidate-00X-ecosystemapi(a Nextjs app)/
+├── backend/
+│   ├── app.js
+│   ├── routes/
+│   ├── controllers/
+│   ├── utils/
+│   ├── middlewares/
+│   ├── .env
+│   └── package.json
+├── node_modules/
+├── package.json
+└── README.md
+```
+
+---
+## 📌 Notes
+
+- Ensure `.env` is listed in `.gitignore`.
+- You must run `npm install` in **both** the root and `/backend` directories.
+- API keys are loaded dynamically and used for routing requests to services.
+
+---
+🧪 Test the API Using Curl  
+Enter valid API key after "x-api-key: yourapikey":
+
+curl -X POST http://localhost:5000/api/crm-sync \
+  -H "Content-Type: application/json" \
+  -H "x-api-key: 123abc" \
+  -d '{
+    "email": "jostan@example.com",
+    "source": "PlatformA",
+    "targets": ["MailerLite", "Notion"]
+}'
+
+---
+🌐 Live Hosted URLs  
+Frontend (Vercel): https://candidate-00-x-ecosystemapi.vercel.app/  
+Backend (Render): https://candidate-00x-ecosystemapi-1.onrender.com
+
+---
+## 📄 License
+
+MIT License © 2025 Jostan Mathias

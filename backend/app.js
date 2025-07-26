@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
 
-const PORT = process.env.PORT || 3000; // it will work even if the env isnt set || fallback port
+const PORT = process.env.PORT || 5000; // it will work even if the env isnt set || fallback port
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
