@@ -9,10 +9,9 @@ const apiKeysRouter = require('./routes/apiKeys-routes');
 const cors = require('cors');
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: ['http://localhost:3000','https://candidate-00-x-ecosystemapi.vercel.app','https://candidate-00-x-ecosystemapi-i8fxq19jn-jostan30s-projects.vercel.app'],
   credentials: true
-})); 
-
+}));
 app.use(express.json());
 
 app.use('/api', crmRouter);
