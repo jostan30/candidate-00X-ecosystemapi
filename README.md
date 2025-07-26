@@ -35,7 +35,11 @@ Create a `.env` file inside the `backend` directory:
 ```env
 PORT=5000
 ```
+Create a `.env` file in the root directory:
 
+```env
+NEXT_PUBLIC_BASE_URL=http://localhost:5000
+```
 ---
 
 ## 🚀 Start the Backend Server
@@ -55,7 +59,6 @@ npm install -g nodemon
 The server will run at `http://localhost:5000`.
 
 ---
-
 ## 📁 Project Structure
 
 ```
@@ -74,7 +77,6 @@ candidate-00X-ecosystemapi(a Nextjs app)/
 ```
 
 ---
-
 ## 📌 Notes
 
 - Ensure `.env` is listed in `.gitignore`.
@@ -94,6 +96,7 @@ curl -X POST http://localhost:5000/api/crm-sync \
     "targets": ["MailerLite", "Notion"]
 }'
 
+---
 🌐 Live Hosted URLs  
 Frontend (Vercel): https://candidate-00-x-ecosystemapi.vercel.app/  
 Backend (Render): https://candidate-00x-ecosystemapi-1.onrender.com
