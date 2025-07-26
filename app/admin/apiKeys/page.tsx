@@ -12,6 +12,7 @@ type ApiKey = {
 };
 
 export default function ApiKeyManager() {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:5000';
     const [keys, setKeys] = useState<ApiKey[]>([]);
     const [name, setName] = useState("");
     const [loading, setLoading] = useState(true);
@@ -20,7 +21,7 @@ export default function ApiKeyManager() {
 
     const fetchKeys = async () => {
         try {
-            const res = await fetch("http://localhost:5000/api/keys");
+            const res = await fetch(`${baseUrl}/api/keys`);
             const data = await res.json();
             setKeys(data.keys || []);
             setLoading(false);
@@ -35,7 +36,7 @@ export default function ApiKeyManager() {
         
         setAddingKey(true);
         try {
-            const res = await fetch("http://localhost:5000/api/keys", {
+            const res = await fetch(`${baseUrl}/api/keys`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name }),
@@ -57,7 +58,7 @@ export default function ApiKeyManager() {
 
     const deleteKey = async (keyName: string) => {
         try {
-            const res = await fetch(`http://localhost:5000/api/keys/${keyName}`, {
+            const res = await fetch(`${baseUrl}/api/keys/${keyName}`, {
                 method: "DELETE",
             });
             

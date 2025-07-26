@@ -10,12 +10,13 @@ type Transaction = {
 };
 
 export default function AdminDashboard() {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:5000';
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/transactions")
+    fetch(`${baseUrl}/api/transactions`)
       .then(res => res.json())
       .then(data => {
         setTransactions(data.transactions);
