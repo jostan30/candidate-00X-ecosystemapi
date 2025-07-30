@@ -87,7 +87,7 @@ candidate-00X-ecosystemapi(a Nextjs app)/
 🧪 Test the API Using Curl  
 Enter valid API key after "x-api-key: yourapikey":
 
-curl -X POST http://localhost:5000/api/crm-sync \
+curl -X POST https://candidate-00x-ecosystemapi-1.onrender.com/api/crm-sync \
   -H "Content-Type: application/json" \
   -H "x-api-key: 123abc" \
   -d '{
